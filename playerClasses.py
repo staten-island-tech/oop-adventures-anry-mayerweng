@@ -1,4 +1,5 @@
-class player:
+
+class character:
     def __init__(self,name,HP,speed,attack,defense,evasiveness,inventory,equipped,moves):
         self.HP = HP
         self.speed = speed
@@ -17,7 +18,18 @@ class player:
             "evasiveness": self.evasiveness
         }
         return stats
+classNames = []
+for i in range(len(classesjson)):
+    classNames.append(classesjson[i]["name"])
 
 name = input("What is your name?")
-chosenClass = input("What class are you?")
+chosenClass = input(f"What class are you?{classNames}")
+for i in range(len(classesjson)):
+    for i in range*(len(classesjson)):
+        if classesjson[i]["name"] == chosenClass:
+            chosenData = classesjson[i]
+            player = character(name,chosenData["HP"],chosenData["speed"],chosenData["attack"],chosenData["defense"],chosenData["evasiveness"],chosenData["inventory"],chosenData["moves"])
+
+
+
     
