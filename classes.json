@@ -1,0 +1,36 @@
+[
+        {
+
+        "name":"Melee",
+        "HP":80,
+        "speed":80,
+        "attack":120,
+        "defense":80,
+        "evasiveness":0.99,
+        "inventory": ["Basic Sword"],
+        "equipped": ["Basic Sword"],
+        "moves": ["Sword Slash"]
+    },
+        {
+        "name":"Tank",
+        "HP":120,
+        "speed":60,
+        "attack":100,
+        "defense":120,
+        "evasiveness":1,
+        "inventory": ["Giant Fists","Basic Armor"],
+        "equipped": ["Giant Fists","Basic Armor"],
+        "moves": ["Giant Punch"]
+    },
+        {
+        "name":"Assasin",
+        "HP":60,
+        "speed":120,
+        "attack":110,
+        "defense":60,
+        "evasiveness":0.85,
+        "inventory": ["Basic Dagger"],
+        "equipped": ["Basic Dagger"],
+        "moves": ["Stab"]
+    }
+]
