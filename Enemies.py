@@ -49,6 +49,7 @@ mob1 = [
         "lootdrops":r.choice(Zombie_lootdrops), 
         "speed":r.randint(1,2), 
         "defense":r.randint(2,6),
+        "evasiveness":1,
         "chance":r.randint(1,4),
         "debuff": None,
         "debuffmulti": 1
@@ -61,6 +62,7 @@ mob1 = [
         "lootdrops":r.choice(Vampire_lootdrops), 
         "speed":r.randint(4,7), 
         "defense":r.randint(1,4),
+        "evasiveness":0.9,
         "chance":r.randint(1,6),
         "debuff": None,
         "debuffmulti": 1
@@ -73,6 +75,7 @@ mob1 = [
         "lootdrops":r.choice(Skeleton_lootdrops), 
         "speed":r.randint(2,3), 
         "defense":r.randint(1,4),
+        "evasiveness":1,
         "chance":r.randint(1,5),
         "debuff": None,
         "debuffmulti": 1
@@ -88,7 +91,7 @@ invetory =[]
 
 
 class mob():
-    def __init__(self, levelmin,levelmax, mob_name ,health,attack,speed,defense,lootdrops,chance,debuff,debuffmulti,moves):
+    def __init__(self, levelmin,levelmax, mob_name ,health,attack,speed,defense,evasiveness,lootdrops,chance,debuff,debuffmulti,moves):
         self.level = r.randint(levelmin, levelmax)
         self.name = mob_name
         self.health = int(health * (self.level * .40))
@@ -100,6 +103,7 @@ class mob():
         self.chance = chance
         self.debuff = debuff
         self.moves = moves
+        self.evasiveness = evasiveness
     def lootdrop(self):
         chance = r.randint(1,chance)
         if chance == 1:
@@ -112,6 +116,14 @@ class mob():
             return False
     def Dodamage(self, attack):
         self.health -= attack
+    def returnStats(self):
+        stats = {
+            "attack":self.attack,
+            "defense":self.defense,
+            "speed":self.speed,
+            "evasiveness": self.evasiveness
+        }
+        return stats
 
 
 
