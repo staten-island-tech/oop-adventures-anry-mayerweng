@@ -52,7 +52,8 @@ mob1 = [
         "evasiveness":1,
         "chance":r.randint(1,4),
         "debuff": None,
-        "debuffmulti": 1
+        "debuffmulti": 1,
+        "moves":["Bite","Bad Breath"]
     },
     {
         "name": "Vampire",
@@ -65,7 +66,8 @@ mob1 = [
         "evasiveness":0.9,
         "chance":r.randint(1,6),
         "debuff": None,
-        "debuffmulti": 1
+        "debuffmulti": 1,
+        "moves":["Bite","Blood Shot"]
     },
     {
     "name": "Skeleton",
@@ -78,7 +80,8 @@ mob1 = [
         "evasiveness":1,
         "chance":r.randint(1,5),
         "debuff": None,
-        "debuffmulti": 1
+        "debuffmulti": 1,
+        "moves":["Bone Bash","Arrow"]
     }
 ]
         
@@ -114,7 +117,7 @@ class mob():
             return True
         else:
             return False
-    def Dodamage(self, attack):
+    def doDamage(self, attack):
         self.health -= attack
     def returnStats(self):
         stats = {
@@ -124,6 +127,8 @@ class mob():
             "evasiveness": self.evasiveness
         }
         return stats
+    def returnMoves(self):
+        return self.moves
 
 
 
