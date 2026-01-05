@@ -15,6 +15,18 @@ moves = [
         "type":"normal"
     },
 ]
+def playerAttack(playerMoves,playerStats,enemieStats,enemie):
+    for i in range(len(playerMoves)):
+        print(f"{i+1}: {playerMoves[i]}")
+        chosenMove = int(input("Chose a move!"))
+        chosenMove = playerMoves[chosenMove - 1]
+        for i in range(len(moves)):
+            if moves[i]["name"] == chosenMove:
+                move = moves[i]
+        chanceToHit = move["accuracy"] * enemieStats["evasiveness"] * 100
+        dmg = move["dmg"] * (playerStats["dmg"])/
+        if rand.randint(1,100) < chanceToHit:
+            enemie.doDamage(dmg)
 def battle(enemie,player):
     enemieStats = enemie.returnStats
     playerStats = player.returnStats
@@ -23,17 +35,22 @@ def battle(enemie,player):
     battle = True
     while battle:
         if playerStats["speed"] > enemieStats["speed"]:
-            for i in range(len(playerMoves)):
-                print(f"{i+1}: {playerMoves[i]}")
-            chosenMove = int(input("Chose a move!"))
-            chosenMove = playerMoves[chosenMove - 1]
+            playerAttack(playerMoves,playerStats,enemieStats,enemie)
+        elif playerStats["speed"] < enemieStats["speed"]:
+            chosenMove = rand.choice(enemieMoves)
             for i in range(len(moves)):
                 if moves[i]["name"] == chosenMove:
                     move = moves[i]
             chanceToHit = move["accuracy"] * enemieStats["evasiveness"] * 100
             dmg = move["dmg"] * (playerStats[""])
             if rand.randint(1,100) < chanceToHit:
-                enemie.doDamage()
-
-        
+                enemie.doDamage(dmg)
+        if not enemie.Alive():
+            battle = False
+            loot = enemie.lootdrop()
+            player.addToInventory(loot)
+        elif not player.isAlive():
+            battle = False
+            print("YOU DIED")
+            quit()
 
