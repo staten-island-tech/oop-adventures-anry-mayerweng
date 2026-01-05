@@ -18,15 +18,17 @@ moves = [
 def playerAttack(playerMoves,playerStats,enemieStats,enemie):
     for i in range(len(playerMoves)):
         print(f"{i+1}: {playerMoves[i]}")
-        chosenMove = int(input("Chose a move!"))
-        chosenMove = playerMoves[chosenMove - 1]
-        for i in range(len(moves)):
-            if moves[i]["name"] == chosenMove:
-                move = moves[i]
-        chanceToHit = move["accuracy"] * enemieStats["evasiveness"] * 100
-        dmg = move["dmg"] * (playerStats["dmg"])/
-        if rand.randint(1,100) < chanceToHit:
-            enemie.doDamage(dmg)
+    chosenMove = int(input("Chose a move!(A number pls dont break my code ill fix this later) "))
+    chosenMove = playerMoves[chosenMove - 1]
+    for i in range(len(moves)):
+        if moves[i]["name"] == chosenMove:
+            move = moves[i]
+    chanceToHit = move["accuracy"] * enemieStats["evasiveness"] * 100
+    dmg = move["dmg"] * playerStats["attack"]/enemieStats["defense"]
+    if rand.randint(1,100) < chanceToHit:
+        enemie.doDamage(dmg)
+    return enemie
+        
 def battle(enemie,player):
     enemieStats = enemie.returnStats
     playerStats = player.returnStats
@@ -35,7 +37,7 @@ def battle(enemie,player):
     battle = True
     while battle:
         if playerStats["speed"] > enemieStats["speed"]:
-            playerAttack(playerMoves,playerStats,enemieStats,enemie)
+            enemie = playerAttack(playerMoves,playerStats,enemieStats,enemie)
         elif playerStats["speed"] < enemieStats["speed"]:
             chosenMove = rand.choice(enemieMoves)
             for i in range(len(moves)):
