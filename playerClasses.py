@@ -76,6 +76,8 @@ class character:
             return True
         else:
             return False
+    def returnMoves(self):
+        return self.moves
 classNames = []
 for i in range(len(classes)):
     classNames.append(classes[i]["name"])
