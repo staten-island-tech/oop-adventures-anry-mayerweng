@@ -78,15 +78,15 @@ class character:
             return False
     def returnMoves(self):
         return self.moves
-classNames = []
-for i in range(len(classes)):
-    classNames.append(classes[i]["name"])
+# classNames = []
+# for i in range(len(classes)):
+#     classNames.append(classes[i]["name"])
 
-name = input("What is your name?")
-chosenClass = input(f"What class are you?{classNames} ")
-for I in range(len(classes)):
-    for i in range(len(classes)):
-        if classes[i]["name"] == chosenClass:
-            chosenData = classes[i]
-            player = character(name,chosenData["HP"],chosenData["speed"],chosenData["attack"],chosenData["defense"],chosenData["evasiveness"],chosenData["inventory"],chosenData["equipped"],chosenData["moves"])
+# name = input("What is your name?")
+# chosenClass = input(f"What class are you?{classNames} ")
+# for I in range(len(classes)):
+#     for i in range(len(classes)):
+#         if classes[i]["name"] == chosenClass:
+#             chosenData = classes[i]
+#             player = character(name,chosenData["HP"],chosenData["speed"],chosenData["attack"],chosenData["defense"],chosenData["evasiveness"],chosenData["inventory"],chosenData["equipped"],chosenData["moves"])
 

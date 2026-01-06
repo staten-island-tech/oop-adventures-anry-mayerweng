@@ -95,6 +95,7 @@ invetory =[]
 
 class mob():
     def __init__(self, levelmin,levelmax, mob_name ,health,attack,speed,defense,evasiveness,lootdrops,chance,debuff,debuffmulti,moves):
+        
         self.level = r.randint(levelmin, levelmax)
         self.name = mob_name
         self.health = int(health * (self.level * .40))
@@ -108,7 +109,7 @@ class mob():
         self.moves = moves
         self.evasiveness = evasiveness
     def lootdrop(self):
-        chance = r.randint(1,chance)
+        chance = r.randint(1,self.chance)
         if chance == 1:
             loot = r.choice(self.lootdrops)
             return loot
@@ -132,17 +133,17 @@ class mob():
 
 
 
-zombie = mob(1,5,
-             r.choice(zombie_names)
-             ,r.randint(50,70)
-             ,r.randint(4,7)
-             ,r.randint(3,6)
-             ,r.randint(2,6)
-             ,r.choice(Zombie_lootdrops),
-             4,
-             None,
-             1,
-             )
+# zombie = mob(1,5,
+#              r.choice(zombie_names)
+#              ,r.randint(50,70)
+#              ,r.randint(4,7)
+#              ,r.randint(3,6)
+#              ,r.randint(2,6)
+#              ,r.choice(Zombie_lootdrops),
+#              4,
+#              None,
+#              1,
+#              )
 
-print(zombie.name)
-zombie.lootdrop()
+# print(zombie.name)
+# zombie.lootdrop()
