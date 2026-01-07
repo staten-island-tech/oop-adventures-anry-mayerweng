@@ -1,5 +1,5 @@
 
-player_invetory =["Iron", "Iron"]
+player_invetory =["Iron","Iron", "Bone", "Vampire Essence"]
 crafting_recipes = [
     
         {"item":"Iron Sword",
@@ -33,10 +33,10 @@ class craftingfunc():
 
 
     def inputmats(self):
+        playerinvecopy = player_invetory.copy()
         while True:
             iteminput = input("Add items to craft: ").title()
-            if iteminput in player_invetory:
-                playerinvecopy = player_invetory.copy()
+            if iteminput in playerinvecopy:
                 playerinvecopy.remove(iteminput)
                 self.item_used.append(iteminput)
             elif iteminput == "+":
@@ -58,11 +58,16 @@ class craftingfunc():
 
 
     def craft_item(self):
-        for item in self.recipes[{self.chosen_item_index}]["recipe"]:
-            print(item)
+        if self.item_used.sort() == self.recipes[self.chosen_item_index]["recipe"]:
+            print("work")
+        print(self.item_used)
+        print(self.recipes[self.chosen_item_index]["recipe"].split().sort())
+        
+               
 
 crafting = craftingfunc()
-crafting.checkcraft("Iron Sword")
+crafting.inputmats()
+crafting.checkcraft("Blood Wand")
 crafting.craft_item()
            
 
