@@ -1,4 +1,4 @@
-
+from playerClasses import player
 
 
 
@@ -17,7 +17,15 @@ class craftingfunc():
         {"item":"Blood Sword", 
          "recipe":"Vampire_Essence, Vampire_Essence, Vampire_Essence, Vampire_Essence, Vampire_Essence, Iron, Iron"},
         {"item":"Vampire Mask",
-         "recipe":"Vampire Essence, Vampire Essence, Bones, Bones, Bones"}
+         "recipe":"Vampire Essence, Vampire Essence, Bones, Bones, Bones"},
+        {"item":"Iron Chestplate",
+        "recipe":"Iron "*7},
+        {"item":"Iron Leggings",
+         "recipe":"Iron "*4
+         },
+         {"item":"Iron Boots",
+          "recipe":"Iron "*3}
+
         ]
 
     def showalltheitemsandstuff(self):
@@ -31,8 +39,8 @@ class craftingfunc():
 
 
     def inputmats(self):
-        global playerinvecopy
-        playerinvecopy = player_invetory.copy()
+        global player
+        playerinvecopy = player["inventory"].copy()
         print("----------------------------------------------------------------------------------------")
         print("EXAMPLE: item: Iron, Vampire_Essence.")
         print("You would input Iron first, then Vampire_Essence, IT WILL NOT WORK THE OTHER WAY!!!! ")
