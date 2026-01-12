@@ -99,6 +99,7 @@ class mob():
         self.level = r.randint(levelmin, levelmax)
         self.name = mob_name
         self.health = int(health * (self.level * .40))
+        self.maxHealth = self.health
         self.attack = attack + self.level
         self.speed = speed + self.level
         self.debuffmulti = debuffmulti
@@ -136,9 +137,9 @@ class mob():
     def returnName(self):
         return self.name
     def heal(self,heal):
-        self.HP = self.HP + heal
-        if self.HP > self.maxHP:
-            self.HP = self.maxHP
+        self.health = self.health + heal
+        if self.health > self.maxHealth:
+            self.health = self.maxHealth
 
 
 # zombie = mob(1,5,
