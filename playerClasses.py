@@ -40,7 +40,7 @@ classes = [
     }
 ]
 class character:
-    def __init__(self,name,HP,maxHP,speed,attack,defense,evasiveness,inventory,equipped,moves):
+    def __init__(self,name,HP,maxHP,speed,attack,defense,evasiveness,inventory,equipped,):#moves):
         self.HP = HP
         self.maxHP = maxHP
         self.speed = speed
@@ -49,7 +49,7 @@ class character:
         self.evasiveness = evasiveness
         self.inventory = inventory
         self.equippted = equipped
-        self.moves = moves
+        #self.moves = moves
         self.name = name
     def returnStats(self):
         stats = {
@@ -76,15 +76,16 @@ class character:
             return True
         else:
             return False
-# classNames = []
-# for i in range(len(classes)):
-#     classNames.append(classes[i]["name"])
+        
+classNames = []
+for i in range(len(classes)):
+    classNames.append(classes[i]["name"])
 
-# name = input("What is your name?")
-# chosenClass = input(f"What class are you?{classNames} ")
-# for I in range(len(classes)):
-#     for i in range(len(classes)):
-#         if classes[i]["name"] == chosenClass:
-#             chosenData = classes[i]
-#             player = character(name,chosenData["HP"],chosenData["speed"],chosenData["attack"],chosenData["defense"],chosenData["evasiveness"],chosenData["inventory"],chosenData["equipped"],chosenData["moves"])
+name = input("What is your name?")
+chosenClass = input(f"What class are you?{classNames} ")
+for I in range(len(classes)):
+    for i in range(len(classes)):
+        if classes[i]["name"] == chosenClass:
+            chosenData = classes[i]
+            player = character(name,chosenData["HP"],chosenData["speed"],chosenData["attack"],chosenData["defense"],chosenData["evasiveness"],chosenData["inventory"],chosenData["equipped"],chosenData["moves"])
 
