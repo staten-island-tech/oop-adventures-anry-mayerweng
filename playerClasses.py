@@ -40,7 +40,7 @@ classes = [
     }
 ]
 class character:
-    def __init__(self,name,HP,maxHP,speed,attack,defense,evasiveness,inventory,equipped,):#moves):
+    def __init__(self,name,HP,maxHP,speed,attack,defense,evasiveness,inventory,equipped):#moves):
         self.HP = HP
         self.maxHP = maxHP
         self.speed = speed

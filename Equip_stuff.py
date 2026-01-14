@@ -30,23 +30,50 @@ stats_Gears_and_stuff = [
 
 
 
+listofwordsnotinGear = ["leggings", "Chestplate", "Boots", "Mask"]
+listofwordsnotinarmor = ["Sword", "Wand", "Dagger"]
 
 
 
 
-chosenClass = pf.chosenClass
-chosenData = pf.chosenData
-player = pf.player
+
+print(pf.player.inventory)
 
 
 class Armor:
-    def __init__(self, hp, defense):
-        self.hp = hp
+    def __init__(self, maxhp, defense):
+        self.maxhp = maxhp
         self.defense = defense
+        self.playerset = []
+    def remove_armor(self, theitemtoremove):
+        if theitemtoremove in self.playerset:
+            self.playerset.remove(theitemtoremove)
+        else:
+            print("you aint got that on")
 
+    def add_armor(self, theitemtoadd):
+        self.canaddarmor = True
+        if theitemtoadd not in pf.player.inventory or len(self.playerset) == 4 or theitemtoadd in listofwordsnotinarmor:
+            self.canaddarmor = False
 
+        if self.canaddarmor == True:
+            for stats in stats_armors:
+                if stats["item"].lower() == theitemtoadd.lower():
+                    pf.player.maxHP += stats["statsHP"]
+                    pf.player.defense += stats["statsDEF"]
+            print(pf.player.maxHP)
+            print(pf.player.defense)
+            
+                    
+        
+            
 class Gear:
     def __init__(self, attack, speed):
         self.attack = attack
         self.speed = speed
 
+
+
+pf.player.inventory.append("Iron Chestplate")
+player = Armor(pf.player.maxHP, pf.player.defense)
+player.add_armor("Iron Chestplate")
